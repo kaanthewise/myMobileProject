@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.toDO"
+             Title="Not Defteri"
+             BackgroundColor="#F4F4F4">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" Clicked="ToolbarItem_Clicked" IconImageSource="logout.svg" />
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked_1"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid Padding="20" RowDefinitions="Auto, Auto, Auto, Auto, *, Auto"
+              ColumnDefinitions="*, *">
+
+            <!-- Başlık -->
+            <Label Text="Not Defteri"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="#333"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"
+                   Grid.Row="0" Grid.ColumnSpan="2" />
+
+            <!-- Yeni not eklemek için Entry -->
+            <Entry x:Name="entryNote" 
+                   Placeholder="Yeni not yazın..."
+                   FontSize="16"
+                   TextColor="#333"
+                   BackgroundColor="#FFFFFF"
+                   PlaceholderColor="#B0B0B0"
+                   HeightRequest="50"
+                   Margin="0,0,0,10"  
+                   Grid.Row="1" Grid.ColumnSpan="2" />
+
+            <!-- Ekle Butonu -->
+            <Button Text="Ekle"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Clicked="OnAddClicked"
+                    Grid.Row="2" Grid.Column="0"
+                    Margin="5"/>
+
+            <!-- Sil Butonu -->
+            <Button Text="Sil"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Clicked="OnDeleteClicked"
+                    Grid.Row="2" Grid.Column="1"
+                    Margin="5"/>
+
+            <!-- Güncelle Butonu -->
+            <Button Text="Güncelle"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Clicked="OnUpdateClicked"
+                    Grid.Row="3" Grid.Column="0"
+                    Margin="5"/>
+
+            <!-- Ara Butonu -->
+            <Button Text="Ara"
+                    BackgroundColor="#FFC107"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Clicked="OnSearchClicked"
+                    Grid.Row="3" Grid.Column="1"
+                    Margin="5"/>
+
+            <!-- Notları Listelemek İçin ListView -->
+            <Frame Grid.Row="4" Grid.ColumnSpan="2"
+                   BackgroundColor="#FFFFFF"
+                   CornerRadius="8" 
+                   Padding="10">
+                <ListView x:Name="listViewNotes"
+                          ItemSelected="OnNoteSelected"
+                          SeparatorVisibility="Default"
+                          SeparatorColor="#E1E1E1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BackgroundColor="#F9F9F9"
+                                       CornerRadius="5"
+                                       Padding="10" HeightRequest="60"
+                                       Margin="0,10,0,10">
+                                    <Label Text="{Binding}"
+                                           TextColor="#333"
+                                           FontSize="16" />
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

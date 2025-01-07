@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.qibla"
+             Title="Kıble Uygulaması"
+             BackgroundColor="#A8D5BA">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" Clicked="ToolbarItem_Clicked" IconImageSource="logout.svg" />
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked_1"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout Margin="20" Spacing="20" >
+            <!-- Başlık Alanı -->
+            <Frame Padding="20" BackgroundColor="#4CAF50" CornerRadius="15" HorizontalOptions="Fill">
+                <Label 
+            Text="Kıble Yönü Nasıl Bulunur?" 
+            FontSize="Title" 
+            FontAttributes="Bold" 
+            HorizontalTextAlignment="Center"
+            TextColor="White" />
+            </Frame>
+
+            <!-- İçerik Alanları -->
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="10" BorderColor="#D3D3D3" Margin="5">
+                <Label Text="📍 Kıble tüm Müslümanların namaz kılarken döndükleri yerdir. Kıble, Suudi Arabistan'ın Mekke şehrinde yer alan ve kutsal sayılan Kabe'dir. Namaz kılarken her Müslüman buraya yönelir." 
+               FontSize="14" 
+               TextColor="#333333" />
+            </Frame>
+
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="10" BorderColor="#D3D3D3" Margin="5">
+                <Label Text="🧭 Kıble'yi bulmak için Google'ın Qibla Finder uygulaması kullanılabilir. Telefon pusulası ile yön tespiti yapmak için manyetik sensörün aktif olması gereklidir." 
+               FontSize="14" 
+               TextColor="#333333" />
+            </Frame>
+
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="10" BorderColor="#D3D3D3" Margin="5">
+                <Label Text="🌍 Telefon pusulasını kullanarak Kıble yönünü bulabilirsiniz. Öncelikle bulunduğunuz yerin Kıble derecesini öğrenin, ardından telefonu kuzeye sabitleyerek yönünüzü ayarlayın." 
+               FontSize="14" 
+               TextColor="#333333" />
+            </Frame>
+
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="10" BorderColor="#D3D3D3" Margin="5">
+                <Label Text="🔢 Google, Kabe'nin enlem ve boylamını kullanarak iki konum arasındaki en kısa mesafeyi hesaplar. Bu hesaplama için haversine formülü kullanılır." 
+               FontSize="14" 
+               TextColor="#333333" />
+            </Frame>
+
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="10" BorderColor="#D3D3D3" Margin="5">
+                <Label Text="📐 Haversine, iki nokta arasındaki büyük daire mesafesini hesaplayan bir trigonometrik formüldür. Bu yöntem coğrafi koordinatlar arasında doğruluk sağlar." 
+               FontSize="14" 
+               TextColor="#333333" />
+            </Frame>
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+</ContentPage>

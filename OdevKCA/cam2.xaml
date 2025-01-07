@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.cam2"
+             Title="cam2">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" 
+                     IconImageSource="logout.svg" 
+                     Clicked="OnBackToMenuClicked"/>
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Image Source="camera.jpg"
+       Aspect="AspectFill"
+       Opacity="0.8"
+       VerticalOptions="FillAndExpand"
+       HorizontalOptions="FillAndExpand" />
+        <ScrollView Padding="20">
+            <StackLayout Spacing="20">
+                <!-- Başlık -->
+                <Label Text="Kamera ile Nesne Kaydetme Sayfası" 
+            FontSize="22" 
+            HorizontalOptions="Center" 
+            FontAttributes="Bold" 
+            TextColor="White"/>
+
+                <!-- Nesne adı girişi -->
+                <Entry x:Name="ObjectNameEntry" 
+            Placeholder="Nesne Adını Girin" 
+            HorizontalOptions="FillAndExpand" 
+            Margin="10" 
+            BackgroundColor="#F1F1F1" 
+           />
+
+                <!-- Kaydet butonu -->
+                <Button Text="Resim Çek ve Kaydet" 
+             Clicked="OnCaptureAndSaveClicked" 
+             HorizontalOptions="FillAndExpand" 
+             Margin="10" 
+             BackgroundColor="#4CAF50" 
+             TextColor="White" 
+             CornerRadius="10" 
+             FontSize="16" />
+
+                <!-- Listeyi Göster Butonu -->
+                <Button Text="Listeyi Göster" 
+             Clicked="OnListObjectsClicked" 
+             HorizontalOptions="FillAndExpand" 
+             Margin="10" 
+             BackgroundColor="#03A9F4" 
+             TextColor="White" 
+             CornerRadius="10" 
+             FontSize="16" />
+
+                <!-- Arama Girişi -->
+                <Entry x:Name="SearchEntry" 
+            Placeholder="Arama Yapın" 
+            HorizontalOptions="FillAndExpand" 
+            Margin="10" 
+            BackgroundColor="#F1F1F1" 
+            />
+
+                <!-- Arama Yap Butonu -->
+                <Button Text="Arama Yap" 
+             Clicked="OnSearchClicked" 
+             HorizontalOptions="FillAndExpand" 
+             Margin="10" 
+             BackgroundColor="#FF9800" 
+             TextColor="White" 
+             CornerRadius="10" 
+             FontSize="16" />
+
+                <!-- Kayıtlı Nesneleri Listeleme -->
+                <CollectionView x:Name="ObjectCollectionView" 
+                     Margin="10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="#E0E0E0" HasShadow="True">
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" 
+                                FontSize="18" 
+                                FontAttributes="Bold" 
+                                TextColor="Black" />
+                                    <Label Text="{Binding Location}" 
+                                FontSize="14" 
+                                TextColor="Gray" />
+                                    <Label Text="{Binding Time}" 
+                                FontSize="14" 
+                                TextColor="Gray" />
+                                    <Image Source="{Binding PhotoPath}" 
+                                HeightRequest="100" 
+                                Aspect="AspectFill" 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

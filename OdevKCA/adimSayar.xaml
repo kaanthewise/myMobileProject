@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.adimSayar"
+             Title="Adımsayar Uygulaması">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" Clicked="ToolbarItem_Clicked" IconImageSource="logout.svg"/>
+        <ToolbarItem Text="Exit" Clicked="ToolbarItem_Clicked_1" IconImageSource="exit.png"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid>
+            <Image Source="walkers.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <VerticalStackLayout>
+
+                    <Label
+                Text="İyi Günler 😊" FontFamily="Arial" FontAttributes="Bold"
+                VerticalOptions="Center"  HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                FontSize="30"
+                Margin="10"
+                />
+
+                    <Label Text="Adım at!" FontFamily="Arial" FontAttributes="Bold"
+                HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontSize="30"
+                Margin="30" />
+                    <Label x:Name="StepsLabel"
+                Text="👟 Adım Sayısı: 0" 
+                FontSize="24" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                BackgroundColor="AliceBlue"
+                TextColor="Black"
+                Padding="15"
+                Margin="20" FontAttributes="Bold" />
+
+                <Label Text=" ‼️ Doktorlar günde en az 10 bin &#10; atmanızı öneriyor!" FontSize="17" FontAttributes="Bold" LineBreakMode="WordWrap"   Margin="15"
+                    HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontFamily="Arial" />
+
+                <Label Text="Günlük Adım sayınız ile kaç kalori yaktığınızı hesaplamak için butona tıklayın." TextColor="White"
+                       LineBreakMode="WordWrap"     HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"
+                       FontAttributes="Bold" Margin="40" VerticalOptions="End" FontFamily="Arial" FontSize="15" />
+
+                <Button x:Name="hesapla" Text="Tıkla" Clicked="hesapla_Clicked" TextColor="White" 
+                        FontAttributes="Bold" BackgroundColor="OrangeRed" WidthRequest="150"/>
+
+                <Label Text="Kaan Cemal Aydın" VerticalOptions="End" HorizontalOptions="Center" FontSize="Medium" Margin="100" FontAttributes="Italic"/>
+
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>

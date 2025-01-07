@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.alarmPage"
+             Title="alarmPage">
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25" BackgroundColor="Black" >
+            <Frame BackgroundColor="Transparent" BorderColor="Transparent" >
+                <Image Source="alert.png" HorizontalOptions="Center" MaximumWidthRequest="50" MaximumHeightRequest="50" />
+            </Frame>
+            <Label x:Name="sayac" Text="Sayıyor..." HorizontalOptions="Center" FontSize="30" FontFamily="Roboto" VerticalTextAlignment="Center"/>
+            <Frame  Padding="5" CornerRadius="10" WidthRequest="170" BorderColor="#D3D3D3" BackgroundColor="White">
+                <Entry x:Name="sureEntry" Placeholder="Süre Giriniz..." TextColor="Black"
+               Keyboard="Numeric" HorizontalOptions="Center" FontFamily="Roboto" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </Frame>
+            <Button
+            x:Name="CounterBtn"
+            Text="Sayacı Başlat"  FontSize="13" TextColor="White" FontFamily="Droid Sans"
+            Clicked="CounterBtn_Clicked" CornerRadius="10"
+            HorizontalOptions="Center"
+            BackgroundColor="DarkCyan"
+            Padding="25"/>
+
+            <Button x:Name="sureDur"
+                Text="Sayacı Durdur" FontSize="13" TextColor="White" FontFamily="Droid Sans"
+                Clicked="sureDur_Clicked"
+                HorizontalOptions="Center"
+                BackgroundColor="Red"
+                Padding="25"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

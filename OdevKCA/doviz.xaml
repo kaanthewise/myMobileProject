@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.doviz"
+             Title="Döviz Kuru Uygulaması"
+             BackgroundColor="#F5F5F5">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" IconImageSource="logout.svg" 
+                     Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked_1"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="*">
+            <!-- Header -->
+            <StackLayout Grid.Row="0" BackgroundColor="#66BB6A" Padding="20" Spacing="10">
+                <Label Text="Döviz Kuru Hesaplayıcı"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+                <Label Text="Döviz kuru hesaplamalarını anında yapın"
+                       FontSize="14"
+                       TextColor="#E3F2FD"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Main Content -->
+            <StackLayout Grid.Row="1" Padding="20" Spacing="20">
+                <!-- Miktar Girişi -->
+                <Entry x:Name="AmountEntry"
+                       Placeholder="Bir miktar girin"
+                       Keyboard="Numeric"
+                       BackgroundColor="White"
+                       TextColor="#333333"
+                       FontSize="18"/>
+
+                <!-- Kaynak Para Birimi Seçimi -->
+                <Picker x:Name="SourceCurrencyPicker"
+                        Title="Kaynak Para Birimi"
+                        BackgroundColor="White"
+                        TextColor="#333333"
+                        FontSize="18">
+                    <Picker.Items>
+                        <x:String>USD</x:String>
+                        <x:String>EUR</x:String>
+                        <x:String>TRY</x:String>
+                        <!-- Diğer para birimlerini ekleyebilirsiniz -->
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Hedef Para Birimi Seçimi -->
+                <Picker x:Name="TargetCurrencyPicker"
+                        Title="Hedef Para Birimi"
+                        BackgroundColor="White"
+                        TextColor="#333333"
+                        FontSize="18">
+                    <Picker.Items>
+                        <x:String>TRY</x:String>
+                        <x:String>USD</x:String>
+                        <x:String>EUR</x:String>
+                        <!-- Diğer para birimlerini ekleyebilirsiniz -->
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Hesapla Butonu -->
+                <Button Text="Hesapla"
+                        Clicked="Button_Clicked"
+                        BackgroundColor="#66BB6A"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand" />
+
+                <!-- Sonuç Etiketi -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Padding="20">
+                    <StackLayout Spacing="10">
+                        <Label x:Name="ResultLabel"
+                               FontSize="24"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               TextColor="#212121" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

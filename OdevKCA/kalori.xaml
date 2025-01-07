@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.kalori"
+             Title="kalori">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" IconImageSource="logout.svg" Clicked="ToolbarItem_Clicked_1"/>
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid>
+            <Image Source="cal1.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <AbsoluteLayout>
+                <Label
+                    Text="Ne kadar kalori yaktın?🤔"   
+                    AbsoluteLayout.LayoutBounds="55,280" 
+                    HorizontalOptions="Center" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"
+                    FontSize="Title" FontAttributes="Bold"/>
+                <Label x:Name="StepsLabel"  Text="👟 Adım Sayısı: 0" 
+                   FontSize="24"  FontFamily="Arial" FontAttributes="Bold" 
+                   AbsoluteLayout.LayoutBounds="75,320" 
+                   BackgroundColor="Aquamarine"
+                   TextColor="Black"
+                   Padding="10"
+                   Margin="25"/>
+                <Label x:Name="CaloriesLabel" Text="Yakılan Kalori: 0 kcal" 
+                    FontSize="24" FontFamily="Arial" FontAttributes="Bold"
+                    AbsoluteLayout.LayoutBounds="50,420" 
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    Padding="15"
+                    Margin="10"/>
+            </AbsoluteLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

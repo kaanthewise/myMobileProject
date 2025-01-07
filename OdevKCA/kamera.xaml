@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.kamera"
+             Title="kamera">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <!-- Arama Girdisi -->
+            <SearchBar x:Name="searchEntry" 
+                   Placeholder="Fotoğraf arayın..." 
+                   TextChanged="searchEntry_TextChanged" />
+
+            <!-- Fotoğrafları Listeleyen ListView -->
+            <ListView x:Name="photoListView"
+                  ItemSelected="photoListView_ItemSelected"
+                  SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="{Binding FilePath}" 
+                                   WidthRequest="100" 
+                                   HeightRequest="100" />
+                                <StackLayout>
+                                    <Label Text="{Binding PhotoName}" 
+                                       FontSize="Medium" />
+                                    <Label Text="{Binding PhotoDate}" 
+                                       FontSize="Small" />
+                                    <Label Text="{Binding Location}" 
+                                       FontSize="Small" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Fotoğrafı Çekme Butonu -->
+            <Button Text="Fotoğraf Çek" 
+                 x:Name="takePhoto"
+                Clicked="takePhoto_Clicked"
+                HorizontalOptions="Center" />
+
+            <!-- Fotoğrafı Silme Butonu -->
+            <Button Text="Fotoğrafı Sil" 
+                Clicked="deleteButton_Clicked" 
+                HorizontalOptions="Center" 
+                IsVisible="False" 
+                x:Name="deleteButton" />
+
+            <!-- Fotoğraf İsmini Değiştirme Butonu -->
+            <Button Text="Fotoğraf İsmini Değiştir" 
+                Clicked="renameButton_Clicked" 
+                HorizontalOptions="Center" 
+                IsVisible="False" 
+                x:Name="renameButton" />
+
+            <!-- Fotoğrafı Gösterme -->
+            <Image x:Name="photoImage" 
+               HeightRequest="300" 
+               WidthRequest="300" 
+               HorizontalOptions="Center" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

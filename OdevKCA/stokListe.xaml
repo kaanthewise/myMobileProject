@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OdevKCA.stokListe"
+             Title="stokListe">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Çıkış" Clicked="ToolbarItem_Clicked" IconImageSource="logout.svg" />
+        <ToolbarItem Text="Exit" IconImageSource="exit.png" Clicked="ToolbarItem_Clicked_1"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
+            <!-- Ürün Bilgisi Girişi -->
+            <Label Text="Ürün Adı:" FontSize="16" TextColor="Black"/>
+            <Entry x:Name="EntryUrunAdi" Placeholder="Ürün adı girin"/>
+
+            <Label Text="Ürün Adedi:" FontSize="16" TextColor="Black"/>
+            <Entry x:Name="EntryUrunAdedi" Placeholder="Ürün adedi girin" Keyboard="Numeric"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <Button x:Name="ekle" Text="Ekle" Clicked="ekle_Clicked" BackgroundColor="DeepSkyBlue" />
+                <Button x:Name="ara" Text="Ara" Clicked="ara_Clicked" BackgroundColor="AntiqueWhite" TextColor="Black" />
+            </HorizontalStackLayout>
+
+            <!-- Ürün Listesi -->
+            <Label Text="Ürün Listesi:" FontSize="18" Margin="0,20,0,10"/>
+            <CollectionView x:Name="UrunListesiView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10" Spacing="5" BackgroundColor="#f5f5f5" Margin="0,0,0,10">
+                            <Label Text="{Binding Ad}" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="{Binding Adet}" FontSize="14" TextColor="Black"/>
+                            <HorizontalStackLayout Spacing="10">
+                                <Button x:Name="sil" Text="Sil" BackgroundColor="Red" TextColor="White" CommandParameter="{Binding .}" Clicked="sil_Clicked" />
+                                <Button x:Name="guncelle" Text="Güncelle" CommandParameter="{Binding .}" Clicked="guncelle_Clicked" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
